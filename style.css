@@ -9,11 +9,11 @@
     font-family: "Tahoma", sans-serif;
     color: black;
     line-height: 1.6;
-    background-color: #FCECE8;
+    background-color: rgb(252, 236, 232);
   }
   
   header {
-    background-color: rgba(1, 0, 6, 0.9);
+    background-color: rgba(1, 0, 6, 0.85);
     color: white;
     padding: 1rem 0;
     position: fixed;
