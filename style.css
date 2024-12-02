@@ -10,7 +10,7 @@
     color: black;
     line-height: 1.6;
     background-color: rgb(252, 236, 232);
-    min-width: 400px;
+    min-width: 800px;
   }
   
   header {
@@ -48,7 +48,32 @@
     padding: 60px 20px;
     margin-top: 60px;
   }
+
+  #home {
+    padding-top: 110px;
+  }
+
+  #home > div{
+    display: flex; 
+    justify-content: space-between; 
+    padding-top: 10px;
+  }
   
+  .maPhoto{
+    width: 300px; 
+    height: 300; 
+    background-image: url(mon_icone.ico); 
+    background-position: center; 
+    background-size: cover;
+  }
+
+  .status{
+    width: calc(100% - 350px); 
+    height: 100%; 
+    padding-top: 75px; 
+    padding-bottom: 75px;
+  }
+
   .section h2 {
     font-size: 2rem;
     margin-bottom: 1rem;
