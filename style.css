@@ -41,9 +41,14 @@
   }
   
   header nav ul li a:hover {
-    color: #f39c12;
+    color: rgb(243, 156, 18);
   }
   
+  .entete{
+    margin-left: 40%;
+    text-decoration: underline double;
+  }
+
   section {
     padding: 60px 20px;
     margin-top: 60px;
@@ -87,11 +92,14 @@
   }
   
   .project-card {
+    display: block;
     background-color: white;
+    border: 1px solid;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 1px 4px 8px rgba(110, 107, 107, 0.1);
+    box-shadow: 8px 8px 5px rgba(250, 82, 18, 0.318);;
     width: 30%;
+    height: 200px;
     padding: 1rem;
     text-align: center;
   }
