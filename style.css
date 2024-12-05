@@ -52,7 +52,7 @@ header nav ul li a:hover {
 }
 
 section {
-  padding: 60px 20px;
+  padding: 60px 20px 0px;
   margin-top: 60px;
 }
 
@@ -83,7 +83,7 @@ section {
   border-top-left-radius: 5px;
   color: #fff;
   font-size: 1.3rem;
-  background-color: #de3163;
+  background-color: rgba(1, 0, 6, 0.85);
 }
 
 .year {
@@ -112,9 +112,16 @@ section {
   cursor: pointer;
 }
 
+#timeline button a{
+  text-decoration: none;
+}
+
+#timeline button a:hover {
+  color: white;
+}
+
 #timeline button:hover {
   background-color: #17202a;
-  color: #fff;
 }
 
 #timeline ul {
@@ -128,7 +135,7 @@ section {
   width: 7px;
   margin: 0 auto;
   padding-top: 50px;
-  background-color: #58d68e;
+  background-color: #f4d03f;
 }
 
 #timeline ul li .box {
@@ -190,13 +197,13 @@ section {
 #timeline ul li:nth-child(odd) .box:before {
   left: -15px;
   border-width: 8px 16px 8px 0;
-  border-color: transparent #de3163;
+  border-color: transparent rgba(1, 0, 6, 0.85);
 }
 
 #timeline ul li:nth-child(even) .box:before {
   right: -15px;
   border-width: 8px 0px 8px 16px;
-  border-color: transparent #de3163;
+  border-color: transparent rgba(1, 0, 6, 0.85);
 }
 
 @media (max-width: 900px) {
@@ -207,7 +214,7 @@ section {
   #timeline ul li:nth-child(even) .box:beofre {
     left: -15px;
     border-width: 8px 16px 8px 0px;
-    border-color: transparent #de3163;
+    border-color: transparent rgba(1, 0, 6, 0.85);
   }
 
   /* right side */
@@ -238,7 +245,7 @@ section {
   #timeline ul li:nth-child(even) .box:before {
     left: -15px;
     border-width: 8px 16px 8px 0px;
-    border-color: transparent #de3163;
+    border-color: transparent rgba(1, 0, 6, 0.85);
   }
 }
 
@@ -260,6 +267,7 @@ section {
   justify-content: space-around;
   gap: 1.5rem;
   margin-top: 2rem;
+  margin-bottom: 0px;
 }
   
 .project-card {
