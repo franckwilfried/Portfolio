@@ -53,11 +53,13 @@ header nav ul li a:hover {
 
 section {
   padding: 60px 20px 0px;
-  margin-top: 60px;
+  margin-bottom: 0px;
+  margin-top: 0px;
 }
 
 #home {
   padding-top: 110px;
+  margin-top: 60px;
 }
 
 #home > div{
@@ -125,7 +127,7 @@ section {
 }
 
 #timeline ul {
-  padding: 50px 0;
+  padding: 10px 0;
 }
 
 /* create a line */
@@ -249,7 +251,97 @@ section {
   }
 }
 
-/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* ////////////////////////////////////////////////// fin timeline////////////////////////////////////////////////////////////////// */
+
+/* ////////////////////////////////////////////////////////// EXPERIENCES ////////////////////////////////////// */
+
+#experience p {
+  padding: 1rem 0 1rem 1rem;
+  color: #000;
+}
+
+#experience button {
+  margin: 0.5rem 0rem 1rem 1rem;
+  outline: none;
+  border: 1px solid #000000;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  background-color: white;
+  color: #000;
+  transition: all 0.3s ease-in;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+#experience button a{
+  text-decoration: none;
+}
+
+#experience button a:hover {
+  color: white;
+}
+
+#experience button:hover {
+  background-color: #17202a;
+}
+
+#experience ul {
+  padding: 10px 0;
+  list-style: none;
+}
+
+#experience ul li .box {
+  margin: 0px 30px 30px 30px;
+  position: relative;
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+}
+
+@media (max-width: 900px) {
+  #timeline ul li .box {
+    width: 350px;
+  }
+
+  #timeline ul li:nth-child(even) .box:beofre {
+    left: -15px;
+    border-width: 8px 16px 8px 0px;
+    border-color: transparent rgba(1, 0, 6, 0.85);
+  }
+
+  /* right side */
+  #timeline ul li:nth-child(odd) .box {
+    left: 40px;
+  }
+
+  /* left side */
+  #timeline ul li:nth-child(even) .box {
+    left: -40px;
+  }
+}
+
+@media (max-width: 768px) {
+  #timeline ul li {
+    margin-left: 30px;
+  }
+
+  #timeline ul li .box {
+    width: calc(100vw -90px);
+  }
+
+  /* left side conte */
+  #timeline ul li:nth-child(even) .box {
+    left: 40px;
+  }
+
+  #timeline ul li:nth-child(even) .box:before {
+    left: -15px;
+    border-width: 8px 16px 8px 0px;
+    border-color: transparent rgba(1, 0, 6, 0.85);
+  }
+}
+
+/* ////////////////////////////////////////////////// fin timeline////////////////////////////////////////////////////////////////// */
 .status{
   width: calc(100% - 350px); 
   height: 100%; 
@@ -332,6 +424,7 @@ form {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  margin-bottom: 10px;
 }
   
 form input, form textarea {
