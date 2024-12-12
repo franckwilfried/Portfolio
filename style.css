@@ -209,6 +209,48 @@ section {
 }
 
 
+@media (max-width: 900px) {
+  #timeline ul li .box {
+    width: 350px;
+  }
+
+  #timeline ul li:nth-child(even) .box:beofre {
+    left: -15px;
+    border-width: 8px 16px 8px 0px;
+    border-color: transparent rgba(1, 0, 6, 0.85);
+  }
+
+  /* right side */
+  #timeline ul li:nth-child(odd) .box {
+    left: 40px;
+  }
+
+  /* left side */
+  #timeline ul li:nth-child(even) .box {
+    left: -40px;
+  }
+}
+
+@media (max-width: 768px) {
+  #timeline ul li {
+    margin-left: 30px;
+  }
+
+  #timeline ul li .box {
+    width: calc(100vw -90px);
+  }
+
+  /* left side conte */
+  #timeline ul li:nth-child(even) .box {
+    left: 40px;
+  }
+
+  #timeline ul li:nth-child(even) .box:before {
+    left: -15px;
+    border-width: 8px 16px 8px 0px;
+    border-color: transparent rgba(1, 0, 6, 0.85);
+  }
+}
 
 /* ////////////////////////////////////////////////// fin timeline////////////////////////////////////////////////////////////////// */
 
