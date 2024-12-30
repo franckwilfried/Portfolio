@@ -1,0 +1,126 @@
+/* Reset some basic styles */
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+  
+body {
+  font-family: "Tahoma", sans-serif;
+  color: black;
+  line-height: 1.6;
+  background-color: rgb(252, 236, 232);
+  min-width: 600px;
+}
+  
+header {
+  background-color: rgba(1, 0, 6, 0.85);
+  color: white;
+  padding: 1rem 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+  
+header nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+  
+header nav ul li {
+  margin: 0 15px;
+}
+  
+header nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+  
+header nav ul li a:hover {
+  color: rgb(243, 156, 18);
+}
+
+#section {
+  margin-bottom: 0px;
+  margin: 10px;
+}
+/* //////////////////  SECTIN UN //////////////////////////////*/
+.sectionUn{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.logo{
+  position: relative;
+  display: block;
+  width: 250px;
+  height: 250px;
+  background-image: url(img/IPSA_LOGO_2024_QUADRI.png);
+  background-position: center; 
+  background-size: cover;
+}
+
+.presentation{
+  margin-top: 60px;
+  display: block;
+  width: 250px;
+  height: 250px;
+}
+
+/* //////////////////  SECTIN DEUX //////////////////////////////*/
+.sectionDeux{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.drone{
+  margin-left: 20%;
+  display: block;
+  width: 600px;
+  height: 50px;
+  border: solid black;
+  text-align: center;
+  font-size: 30px;
+}
+
+.img2{
+  left: 25%;
+  display: block;
+  position: relative;
+  width: 500px;
+  height: 250px;
+  margin-top: 10px;
+  background-image: url(img/img2.png);
+  background-position: center; 
+  background-size: cover;
+}
+
+.img3{
+  left: 25%;
+  display: block;
+  position: relative;
+  width: 500px;
+  height: 250px;
+  background-image: url(img/img3.png);
+  background-position: center; 
+  background-size: cover;
+}
+
+
+
+/*////////////////////////////////// FOOTER /////////////////////////////////////////*/
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: rgba(1, 0, 6, 0.9);
+  color: white;
+}
+  
