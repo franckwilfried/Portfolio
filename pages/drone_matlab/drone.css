@@ -84,7 +84,7 @@ header nav ul li a:hover {
 .drone{
   margin-left: 20%;
   display: block;
-  width: 600px;
+  width: 60%;
   height: 50px;
   border: solid black;
   text-align: center;
@@ -95,7 +95,7 @@ header nav ul li a:hover {
   left: 25%;
   display: block;
   position: relative;
-  width: 500px;
+  width: 50%;
   height: 250px;
   margin-top: 10px;
   background-image: url(img/img2.png);
@@ -107,7 +107,7 @@ header nav ul li a:hover {
   left: 25%;
   display: block;
   position: relative;
-  width: 500px;
+  width: 50%;
   height: 250px;
   background-image: url(img/img3.png);
   background-position: center; 
