@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Projet drone</title>
+  <link rel="stylesheet" href="drone.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+</head>
+<body>
+    <header>
+        <nav>
+          <ul>
+            <li><a href="../../index.html">A propos de moi</a></li>
+            <li><a href="../../index.html">Parcours</a></li>
+            <li><a href="../../index.html">expériences</a></li>
+            <li><a href="../../index.html">Projets</a></li>
+            <li><a href="../../index.html">Contact</a></li>
+          </ul>
+        </nav>
+      </header>
+
+    <section id="section" class="sectionUn">
+        <div class="logo"></div>
+        <div class="presentation">
+             <h3>Professeur :</h3><!-- <p>Mr Yamine Sellami</p> -->
+            <h3>Etudiant : </h3><p>Kodjo Franck Wilfried</p>
+        </div>
+    </section>
+    <section id="section" class="sectionDeux">
+        <div class="drone">
+            <p>PROJET DRONE</p>
+        </div>
+        <div class="img2"> </div>
+        <div class="img3"> </div>
+    </section>
+    <section section id="section" class="sectionTrois">
+      <h1>Objectif: </h1>
+      <p>
+        L'objectif de ce projet est de simuler/contrôler le comportement d'un drone en m'appuyant sur les connaissances
+        acquises dans le module "Automatique" de ma formation. Au travers d'un système linéaire
+        (Car le comportement de notre drone peut être représenté par une équation linéaire de la forme <strong><code style="font-size: 1.2rem;">&szlig;A+&THORN;V+&micro;X = 0 </code></strong> ) 
+        à temps continue réguler en boucle fermée et à 
+        retour unitaire, nous enverrons à notre drone des consignes d'angle et de position qu'il devra adopter
+        et maintenir. Comme vous l'aurai compris nous allons utiliser le logiciel MATLAB, plus particulièrement 
+        Simulink\Simscape\Multibody pour la simulation numérique de système physique. Pour ce faire, le projet se divisera en 
+        quatre (4) parties:
+        <ol>
+          <li>Modélisation 3D du drone</li>
+          <li>Commande et contrôle de l'angle</li>
+          <li>Commande et contrôle du déplacement selon l'axe horizontal</li>
+          <li>Commande et contrôle du déplacement selon l'axe Vertical</li>
+        </ol>
+      </p>
+    </section>
+    <section class="sectionQuatre" id="section">
+      <h1> I.Modélisation 3D du drone </h1>
+      <ol>
+        <li>
+          <strong>Création d'un nouveau projet</strong> 
+          <img src="img/img4.png">
+          <img src="img/img1.png">
+        </li>
+        <li style="flex-direction: column;">
+          <strong>Modeisation 3D sous Tinkercad</strong>
+          <video width="80%" height="450px" controls style="margin: 2%;">
+            <source src="vid/VN20241231_184002.mp4" type="video/mp4">
+          </video>
+        </li>
+        <li>
+          <strong>Importer le modèle 3D dans MATLAB et cahier des charges</strong>
+          <ul style="padding-left: 20px;">
+            <li style="margin-top: 10px;"> 
+              <strong>Cahier des charges</strong><br>
+              Masse : 200 g <br>
+              Dimensions : 30 cm x 7 cm x 7 cm<br>
+              Puissance max : la Puissance maximale des turbines que nous allons choisir va dépendre de la masse
+              de notre drone. Selon le principe fondamental de la dynamique, la condition d'équilibre du drone 
+              s'écris 
+              <strong><span class="vecteur">F</span>=m*<span class="vecteur">g</span></strong> 
+              où 
+              <span class="vecteur">F</span> 
+              est le vecteur de la portance.<br> Pour que notre drone gagne donc en hauteur, il faut que la norme 
+              de la portance soit supérieure à celle du poids. Soit 
+              <strong><span class="vecteur">F</span>=<code style="font-size: 1.2rem;">&#x3B1;</code>*m*<span class="vecteur">g</span></strong> 
+              où 
+              <code style="font-size: 1.2rem;">&#x3B1;</code>
+              > 1. Si 
+              <code style="font-size: 1.2rem;">&#x3B1;</code>
+              >= 2 cela est équivalent à une chute libre dans le sens inverse à 
+              <span class="vecteur">g</span>.
+               On choisi 
+              donc arbitrairement 
+              <code style="font-size: 1.3rem;">&#x3B1;</code>
+              max=3/2 soit 1,5. C'est-à-dire 
+              <strong><span class="vecteur">Fmax</span>=<code style="font-size: 1.3rem;">&#x3B1;</code>max*m*<span class="vecteur">g</span></strong>=<strong>3/2*m*<span class="vecteur">g</span></strong>
+            </li>
+            <li style="margin-top: 10px;">
+              <strong>Importer le modèle 3D dans MATLAB</strong><br>
+              Dans MATLAB et sur la barre d'outil, aller dans l'onglet "simulation > Library browser". Dans la barre
+              de recherche saisir "file solid", c'est l'objet dont nous aurons besoin. Ensuite double-cliquer
+              sur l'objet qui a été implémenté à notre schéma pour accéder aux paramètres. Enfin, il faudra indiquer
+              le chemin d'accès à notre objet 3D ; l'unité de mesure des dimensions (en millimètre dans notre cas) et 
+              la masse de 200 g. <br>
+              Comme illustré dans l'image ci-dessous. N'oubliez pas d'exécuter la simulation.
+              <img src="img/img5.png">
+            </li>
+          </ul>
+        </li>
+      </ol>
+    </section>
+    <section section id="section" class="sectionCinq">
+      <h1> II.Commande et contrôle de l'angle </h1>
+      <ol>
+        <li>
+          <strong> L'outil pour la rotation</strong> <br>
+          Nous allons mettre en place un système régulé qui nous permettra de controller l'angle d'inclinaison de notre drone. Pour cela
+          nous aurons recour à l'objet de notre libraire "Revolute Joint"(je vous met la documentation, <a href="https://fr.mathworks.com/help/sm/ref/revolutejoint.html" target="_blank">cliquez ici</a> ).
+          Cet outil permet la rotation seulement selon l'axe Z, donc nos déplacement s'effectuerons que dans le plan (OXY). Mais il est
+          tout à fait possible d'orienter la rotation sur l'axe souhaité, il suffit dans ce cas de transformer le repère (Ce que nous ne ferons pas). <br>
+          Notre déplacement verticale s'effectuant selon l'axe Y, nous allons donc appliquer la gravité sur l'axe Y en modifiant
+          les paramètres de l'objet "Mechanism Configuration" ( Gravity : [0 -9.80665 0]). <br>
+          Pour les paramètres du "Revolute Joint", nous irons cocher la case "position" de l'option "Sensing", ce qui nous permettra
+          de lire la valeur de l'angle d'inclinaison pris par notre drone. <br>
+          <img src="img/img6.png">
+        </li>
+        <li>
+          <strong> Orientation du drone et repère</strong> <br>
+            Si votre drone est bien orienté tant mieux , dans mon cas , il faut que le drone soit orienté de sorte à faire face selon
+            l'axe Z. Pour cela utilisons l'outil "Rigid Transform" pour bien alligner notre drone. <br>
+            Ensuite notre drone sera muni de trois repères: le premier sera lié au centre de gravité et les deux autres sur les extrémités.
+            Pour contrôler l'angle d'inclinaison de notre drone il faudra manipuler la force des deux moteurs. C'est
+            pour cela qu'on rajoute un repère à chaque extrémité du drone, là où viendrons s'appliquer les forces. <br>
+            Donc dans l'option de notre "file solid" on vas rajouter deux "frame"(repères). Enfin nous appliquerons "Rigid Transform"
+            à chaque extrémité pour deplacé nos "frame" sur les extrémité car ils sont par defaut au centre de gravité, puis nous allignerons
+            leurs axes comme ceux du centre de gravité.
+            <img src="img/img7.png">
+            <img src="img/img8.png" style="margin-top: 10px;">
+        </li>
+        <li>
+          <strong>Ajout des forces moteur</strong> <br>
+          On vas rajouter une force à chaque extrémité de notre drone orienté selon l'axe Y qui est l'axe de mesure de la hauteur. 
+          L'outil de la libraire utilisé est "External Force and Torque". Pour ces paramètres, nous aurons juste à cocher la case 
+          "Force(Y)" dans "Force". <br>
+          A cela, on rajouter l'outil "Simulink-PS Converter", ratâché à notre force par le port "fy" et le port "F" connecté au 
+          "Rigid Transform"
+        </li>
+        <li> 
+          <strong> Création "Subsystem" </strong> <br>
+          Le premier "Subsystem" représentera ici notre drone muni de ces trois repère, auquel ont viendra appliquer les forces de 
+          poussée pour controller l'aigle d'inclinaison. <br>
+          Le deuxième "Subsystem" pour lire l'angle d'inclinaison et envoyer des consignes de force pour obtenir l'angle souhaité en nous
+          aidant d'un PID pour la stabilité. <br>
+          <video width="80%" height="450px" controls style="margin: 2%;">
+            <source src="vid/subsysteme.mp4" type="video/mp4">
+          </video>
+        </li>
+        <li>
+          <strong> Boucle fermée </strong> <br>
+          On aura besoin de l'outil "Constant", c'est le bloc utilisé pour exprimer notre consignes d'angle initialisé à 0 pour 
+          simuler la stabilisation. <br>
+          Ensuite la constante sera relié au bloc "Sum" qui évaluera la différence entre la consigne et la valeur de l'angle lu en temps réel. 
+          Double-cliquer sur "Sum" et choisir les bons symbole arithmétique. Enfin, "Sum" sera relié au bloc "MATLAB Function". <br>
+          "MATLAB Function" prendra en entrée : la différence u entre consigne et valeur réel ; une constante appelé "mg" qui aura la valeur du 
+          poids(200g*9.80665 = 0,2*9.80665) enfin la valeur d'angle occupé par le drone à chaque instant. En sortie les valeurs des 
+          forces F1(gache) et F2(droite) qui aurons été calculé pour modifier l'angle. <br>
+          Soit "u" différence d'angle entre la consigne et la valeur lu, "u" peut aussi caractériser la différence entre les forces
+          F1 et F2. En appliquant le principe fondamental de la dynamique, on calcule les valeurs F1 et F2 en fonction de l'angle,
+          le poids et la differnce noté "u". <br>
+          N.B: mg = (200g)*9.80665 = 0,2*9.80665 <br>
+          <img src="img/foncton.jpg"> <br>
+          <img src="img/img0.png"> <br>
+          <img src="img/subsys.jpg"> <br>
+        <li>
+          <strong> Utilisation d'un PID</strong> <br>
+          Lorsqu'on propose une consigne d'angle à notre système le drone, il s'incline atteind l'angle souhaité et le dépasse du fait
+          de sont élant. La boucle fermé contraint le drone à revenir à l'angle souhaité, de nouveau il le dépasse et ainsi de suite se
+          poursuit l'osciallation autour du point d'équilibre. <br>
+          D'où l'importance d'utiliser un PID qui nous permet de vite se stabiliser à la consigne souhaité. Pour cela, utilisons l'outil
+          "PID Controller" de notre libraire. Nous appliquerons ici la "deuxième méthode de ZIEGLER NICHOLS", dont je vous laisse voir
+          les detais en <a href="https://www.youtube.com/watch?v=DkYLaxPcAVc&t=490s">cliquant ici</a> <br>
+          Pour commencer on envoie une consigne unité à notre drone c'est à dire égale à 1. Puis notre PID sera proportionnel unité, 
+          c'est à dire avec le paramètre P = Ku = 1 ; I = 0 et D = 0, ensuite on lance la simulation et on observe la sortie sur notre oscilloscope.
+          <img src="img/img10.png"> <br>
+          Sur l'oscilloscope, on observe la période d'oscillation Tu = 1.2sec . De ces valeur, nous pouvons déduire les paramètres de notre PID. <br> 
+          P = 0,6*Ku = 0,6 ; <br>
+          I = (1.2)*(Ku/Tu) = 1.2/1.2 = 1 <br>
+          D = 0.775*Ku*Tu = 0.775*1.2 <br>
+          Avec ces paramètres, notre drone se stabilise à l'angle souhaité. Dans la vu 3D et sur le "scope" on observe la reponse suivante: <br>
+          <img src="img/img11.png"> <br>
+          Notre drone fini bien par se stabiliser mais avec des oscillations que nous voulons annuler/reduire en modifiant les paramètres
+          du PID selon l'influence que peut avoir chaque coéfficient pour une manoeuvvre plus souple. <br>
+          <img src="img/img12.png"> <br>
+          De plus nous essayerons de stabiliser notre drone pour une inclinaison maximale c'est à dire 90°. En considérant pi = 3,14 alors 
+          90° = 1,57. <br>
+          Comme disait mon prof de Math "Qui peut le plus, peut le moins". Si notre PID stabilise pour un angle droit(max) alors il le fera pour les
+          valeurs en dessous.
+          <video width="80%" height="450px" controls style="margin: 2%;">
+            <source src="vid/PID.mp4" type="video/mp4">
+          </video>
+        </li>
+        </li>
+      </ol>
+    </section>
+    <section section id="section" class="sectionSix">
+      <h1> III.Déplacement sur l'axe X </h1>
+      <ol>
+        <li>
+          <strong> Planar Joint</strong> <br>
+          Bravo, maintenant que nous controllons l'angle d'inclinaison du drone, nous allons nous deplacer sur l'axe x. Pour cela nous
+          irons remplacer dans notre subsystem le "Revolute Joint" par un "Planar Joint". Comme avec le "Revolute Joint", nous irons
+          cocher la case "position" du paramètre "sensing" de chaque axe. Afin de lire l'angle d'inclinaison ainsi que la position
+          de notre drone dans le repère. La documentation officiel du planar joint:<a target="blank" href="https://fr.mathworks.com/help/sm/ref/planarjoint.html"> cliquez ici.</a>
+          <img src="img/planar.png"> <br>
+        </li>
+        <li>
+          <strong> Boucle fermée</strong> <br>
+          Il est evident que pour se deplacer de la gauche vers la droite il faut une inclinaison du drone dans le sens du déplacement. 
+          Ce qui implique que la force de gauche doit être supérieure à celle de droite. Et inversement pour le déplacement dans le
+          l'autre sens.
+          Comme pour l'angle, nous allons mettre en place une boucle fermé avec en entrée notre consigne de position sur l'axe X. Et 
+          nous aurons en sortie l'ange d'inclinaison souhaité qui sera communiqué à la première boucle fermée pour permettre le 
+          déplacement. Cela au travers d'un deuxième PID et une deuxième fonction<br> <br>
+          Explication pour la fonction de selection d'angle: Voir l'image si dessous.
+          <img src="img/func.jpg"> <br> 
+        </li>
+        <li>
+          <strong> PID </strong> <br>
+          Une fois de plus on utilise la deuxième méthode de ZIEGLER NICHOLS. Notre consigne d'entrée est égale à 1 et nos coefficient 
+          PID sont P = Ku = 1 et I = D = 0. Cela nous donne une oscillation avec Tu = 2,927 sec.
+          <img src="img/zigler.png" alt=""> <br>
+          On en déduis le coefficient du PID avant correction: <br>
+          P = 0,6*Ku = 0,6  <br>
+          I = (1,2)*(Ku/Tu) = 1,2*2,927 = 3,5124 <br>
+          D = 0,775*Ku*Tu = 0,775*2,927 = 2,268425 <br> <br>
+          Après correction: <br>
+          P = 0,6*20  <br>
+          I = 3,5124 <br>
+          D = 2,268425*1,5 <br> 
+          <img src="img/avant.png" alt=""> <br>
+          <img src="img/Apres.png" alt=""> <br>
+          Tu aura remarqué que le drone n'est pas stable sur Y. C'est ce que nous allons traiter dans la section qui suit.
+        </li>
+      </ol>
+    </section>
+    <section section id="section" class="sectionSix">
+      <h1> III.Déplacement sur l'axe Y </h1>
+      <ol>
+        <li>
+          <strong> La fonction </strong> <br>
+          Vous l'aurai peut être deviné, pour cette nouvelle boucle fermé de control, nous utiliserons une fonction, un PID
+          et finalement une consigne. <br>
+          C'est dans cette section que nous ferons appel à notre coefficient de pouussée α qui fera soit monter soit descendre 
+          soit mettre en équilibre . C'est-à-dire F=α*mg. Donc ce coefficient est la sortie de notre fonction. Un coefficient 
+          à valeur inférieur à 1 pour déscendre et suppérieur 1 pour monter. Tout depend de la différence en norme entre la poussée 
+          et le poids. Il y aura donc des modification à faire sur notre première fonction qui a pour sortie les forces pour
+           y rajouter la variable "coef". <br> <br>
+
+          Nous mettrons en place notre fonction dans la même logique que la fonctioon précédante.
+          <img src="img/derniere_fonction.png" alt="">
+        </li>
+        <li>
+          <strong> Le PID </strong> <br>
+          <img src="img/3_PID.png" alt="">
+        </li>
+        <li>
+          <strong> Conclusion </strong> <br>
+          <img src="img/Schema_final.PNG" alt="">
+          <video width="80%" height="450px" controls style="margin: 2%;">
+            <source src="vid/Finale.mp4" type="video/mp4">
+          </video>
+        </li>
+      </ol>
+    </section>
+
+    <footer>
+        <p>&copy; Dernière mise à jour 12/02/2025 Franck Wilfried Kodjo. Tout droits réservés.</p>
+        <button style="width: 100px; height: 50;"> 
+        <a href="../../CV.pdf" style="text-decoration: none; width: 100px; height: 50;"> Télécharger mon cv</a>
+        </button>
+    </footer>
+  
+</body>
+</html>
