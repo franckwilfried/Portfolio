@@ -135,15 +135,15 @@
             Donc dans l'option de notre "file solid" on vas rajouter deux "frame"(repères). Enfin nous appliquerons "Rigid Transform"
             à chaque extrémité pour deplacé nos "frame" sur les extrémité car ils sont par defaut au centre de gravité, puis nous allignerons
             leurs axes comme ceux du centre de gravité.
-            <img src="img/img7.png">
             <img src="img/img8.png" style="margin-top: 10px;">
+            <img src="img/img7.png">
         </li>
         <li>
           <strong>Ajout des forces moteur</strong> <br>
           On vas rajouter une force à chaque extrémité de notre drone orienté selon l'axe Y qui est l'axe de mesure de la hauteur. 
-          L'outil de la libraire utilisé est "External Force and Torque". Pour ces paramètres, nous aurons juste à cocher la case 
+          L'outil de la libraire utilisé est "External Force and Torque". Pour ses paramètres, nous aurons juste à cocher la case 
           "Force(Y)" dans "Force". <br>
-          A cela, on rajouter l'outil "Simulink-PS Converter", ratâché à notre force par le port "fy" et le port "F" connecté au 
+          A cela, on vas rajouter l'outil "Simulink-PS Converter", ratâché à notre force par le port "fy" et le port "F" connecté au 
           "Rigid Transform"
         </li>
         <li> 
