@@ -1,0 +1,129 @@
+/* Reset some basic styles */
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+  
+body {
+  font-family: "Tahoma", sans-serif;
+  color: black;
+  line-height: 1.6;
+  background-color: rgb(252, 236, 232);
+  min-width: 600px;
+}
+  
+header {
+  background-color: rgba(1, 0, 6, 0.85);
+  color: white;
+  padding: 1rem 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+  
+header nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+  
+header nav ul li {
+  margin: 0 15px;
+}
+  
+header nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+  
+header nav ul li a:hover {
+  color: rgb(243, 156, 18);
+}
+
+section {
+  padding: 80px 20px 0px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+/* ////////////////////////////////////////////////////////// EXPERIENCES ////////////////////////////////////// */
+.title {
+  box-shadow: 10px 5px 10px rgba(0, 0, 0, 0.5);
+  padding: 1rem 0rem 1rem 0.7rem;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  color: #fff;
+  font-size: 1.3rem;
+  background-color: rgba(1, 0, 6, 0.85);
+}
+
+.year {
+  background-color: #fff;
+  padding: 0.2rem 0.8rem;
+  border-radius: 10px;
+  color: #2c3e50;
+  font-size: 0.9rem;
+  margin: 0 0.5rem;
+}
+
+#experience p {
+  padding: 1rem 0 1rem 1rem;
+  color: #000;
+}
+
+#experience button {
+  margin: 0.5rem 0rem 1rem 1rem;
+  outline: none;
+  border: 1px solid #000000;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  background-color: white;
+  color: #000;
+  transition: all 0.3s ease-in;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+#experience button a{
+  text-decoration: none;
+}
+
+#experience button a:hover {
+  color: white;
+}
+
+#experience button:hover {
+  background-color: #17202a;
+}
+
+#experience ul {
+  padding: 10px 0;
+  list-style: none;
+}
+
+#experience ul li .box {
+  margin: 0px 30px 30px 30px;
+  position: relative;
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+}
+
+Ol {
+    padding-left: 10%;
+}
+/* ////////////////////////////////////////////////// fin expérience////////////////////////////////////////////////////////////////// */
+
+  
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: rgba(1, 0, 6, 0.9);
+  color: white;
+}
