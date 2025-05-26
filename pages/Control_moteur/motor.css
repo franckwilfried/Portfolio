@@ -1,0 +1,111 @@
+/* Reset some basic styles */
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+  
+body {
+  font-family: "Tahoma", sans-serif;
+  color: black;
+  line-height: 1.6;
+  background-color: rgb(252, 236, 232);
+  min-width: 600px;
+}
+/*///////////////               DEBUT BAR DE NAV       ///////////////////*/
+header {
+  background-color: rgba(1, 0, 6, 0.85);
+  color: white;
+  padding: 1rem 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+  
+header nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+  
+header nav ul li {
+  margin: 0 15px;
+}
+  
+header nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+  
+header nav ul li a:hover {
+  color: rgb(243, 156, 18);
+}
+/*///////////////               FIN BAR DE NAV       ///////////////////*/  
+
+section {
+  padding: 20px 20px 0px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+/*///////////////               DEBUT SECTION UN       ///////////////////*/
+.sectionUn {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; 
+    margin-top: 50px;
+    font-size: 1.2rem;
+}
+
+.photoUn{
+    background-image: url('img/photoUn.jpg');
+    display: block;
+    width: 200px; 
+    height: 200px;
+    background-position: center; 
+    background-size: cover;
+}
+/*///////////////               FIN SECTION UN       ///////////////////*/
+
+/*///////////////               DEBUT SECTION DEUX       ///////////////////*/
+.sectionDeux {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+}
+
+.titreProjet{
+    margin-left: 20%;
+    display: block;
+    width: 60%;
+    height: 50px;
+    border: solid black;
+    text-align: center;
+    font-size: 30px;
+}
+
+.photoDeux{
+    background-image: url('img/photoDeux.jpg');
+    display: block;
+    width: 700px; 
+    height: 400px;
+    background-position: center; 
+    background-size: cover;
+    margin-left: 25% ;
+    margin-top: 5px;
+    font-size: 1rem;
+}
+/*///////////////               FIN SECTION UN       ///////////////////*/
+
+/*///////////////               DEBUT FOOTER ///////////////////*/
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: rgba(1, 0, 6, 0.9);
+  color: white;
+}
+/*///////////////               FIN FOOTER ///////////////////*/

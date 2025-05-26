@@ -71,7 +71,7 @@ section {
 .maPhoto{
   width: 300px; 
   height: 300; 
-  background-image: url(img/mon_icone.ico); 
+  background-image: url(img/moi.png); 
   background-position: center; 
   background-size: cover;
 }
