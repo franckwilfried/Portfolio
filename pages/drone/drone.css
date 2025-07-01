@@ -89,15 +89,15 @@ section {
 }
 
 .photoDeux{
-    background-image: url('img/photoDeux.jpg');
+    background-image: url('img/drone_catia.jpg');
+    left: 25%;
     display: block;
-    width: 700px; 
-    height: 400px;
+    position: relative;
+    width: 50%;
+    height: 300px;
+    margin-top: 10px;
     background-position: center; 
     background-size: cover;
-    margin-left: 25% ;
-    margin-top: 5px;
-    font-size: 1rem;
 }
 /*///////////////               FIN SECTION UN       ///////////////////*/
 

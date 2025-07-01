@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Portfolio</title>
+  <link rel="stylesheet" href="drone.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+</head>
+<body>
+
+    <section  class="sectionUn">
+        <div class="photoUn"></div>
+        <div class="presentation">
+             <h3>Professeur :</h3><p></p>
+            <h3>Etudiant : </h3><p>Kodjo Franck Wilfried</p>
+        </div>
+    </section>
+    <section class="sectionDeux">
+        <div class="titreProjet">
+            <p>PROJET DRONE 3D</p>
+        </div>
+        <div class="photoDeux"> </div>
+    </section>
+    <section class="sectionTrois">
+        <h1>Objectif: </h1>
+        <p>
+            L'objectif de ce projet est de simuler et contrôler le comportement d'un drone évoluant dans l'espace 3D avec 
+            tout ces dégré de liberté tant au niveau des translation que des rotation. Pour ce faire nous enverrons des 
+            des consignes d'angle et de déplacement sur les axes x , y et z. Le drone devra atteindre ces consignes puis 
+            se stabiliser. J'ai modéliser le drone sur CATIA mais on ne parlera pas ici de modélisation 3D, ça sera le 
+            sjet d'un autre article. Etant donné la taille du schema, les explication ne seraont extrêmement détaillées. 
+            Néanmoins je vous expliquerai ce que j'ai fais comme travail de sorte à ce que vous puissiez le reproduire et 
+            même l'améliorer. L'article sera redigé de la manière suivante : 
+            <ol style="margin-left: 50px;">
+                <li>Présentation du schema général</li>
+                <li>Présentation bloc par bloc</li>
+            </ol>
+        </p>
+    </section>
+
+    <section section class="sectionQuatre">
+      <h1> I.Présentation du schema général </h1>
+      <ol>
+        <li>
+          <strong> Image et lien entre les différents blocs</strong> <br>
+          Bravo, maintenant que nous controllons l'angle d'inclinaison du drone, nous allons nous deplacer sur l'axe x. Pour cela nous
+          irons remplacer dans notre subsystem le "Revolute Joint" par un "Planar Joint". Comme avec le "Revolute Joint", nous irons
+          cocher la case "position" du paramètre "sensing" de chaque axe. Afin de lire l'angle d'inclinaison ainsi que la position
+          de notre drone dans le repère. La documentation officiel du planar joint:<a target="blank" href="https://fr.mathworks.com/help/sm/ref/planarjoint.html"> cliquez ici.</a>
+          <img src="img/planar.png"> <br>
+        </li>
+        <li>
+          <strong> Aperçu du resultat attendu</strong> <br>
+          Il est evident que pour se deplacer de la gauche vers la droite il faut une inclinaison du drone dans le sens du déplacement. 
+          Ce qui implique que la force de gauche doit être supérieure à celle de droite. Et inversement pour le déplacement dans le
+          l'autre sens.
+          Comme pour l'angle, nous allons mettre en place une boucle fermé avec en entrée notre consigne de position sur l'axe X. Et 
+          nous aurons en sortie l'ange d'inclinaison souhaité qui sera communiqué à la première boucle fermée pour permettre le 
+          déplacement. Cela au travers d'un deuxième PID et une deuxième fonction<br> <br>
+          Explication pour la fonction de selection d'angle: Voir l'image si dessous.
+          <video src=""></video>
+        </li>
+        <li>
+          <strong> PID </strong> <br>
+          Une fois de plus on utilise la deuxième méthode de ZIEGLER NICHOLS. Notre consigne d'entrée est égale à 1 et nos coefficient 
+          PID sont P = Ku = 1 et I = D = 0. Cela nous donne une oscillation avec Tu = 2,927 sec.
+          <img src="img/zigler.png" alt=""> <br>
+          On en déduis le coefficient du PID avant correction: <br>
+          P = 0,6*Ku = 0,6  <br>
+          I = (1,2)*(Ku/Tu) = 1,2*2,927 = 3,5124 <br>
+          D = 0,775*Ku*Tu = 0,775*2,927 = 2,268425 <br> <br>
+          Après correction: <br>
+          P = 0,6*16666,66667  <br>
+          I = 0 <br>
+          D = 2,268425*22041 <br> 
+          N = 100*10 <br>
+          <img src="img/avant.png" alt=""> <br>
+          <img src="img/Apres.png" alt=""> <br>
+          Tu aura remarqué que le drone n'est pas stable sur Y. C'est ce que nous allons traiter dans la section qui suit.
+        </li>
+      </ol>
+    </section>
+   
+    <script src="script.js"></script>
+</body>
+</html>
